@@ -1,0 +1,15 @@
+syntax = "proto3";
+package dex.crisis.v0;
+
+option go_package = "github.com/mydexchain/chain-sdk/x/crisis/types";
+
+import "gogoproto/gogo.proto";
+import "dex/base/v0/coin.proto";
+
+// GenesisState defines the crisis module's genesis state.
+message GenesisState {
+  // constant_fee is the fee used to verify the invariant in the crisis
+  // module.
+  dex.base.v0.Coin constant_fee = 3
+      [(gogoproto.nullable) = false, (gogoproto.moretags) = "yaml:\"constant_fee\""];
+}
